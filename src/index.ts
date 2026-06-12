@@ -19,6 +19,9 @@ app.use(
       // Allow requests with no origin (curl, server-to-server)
       if (!origin) return cb(null, true);
       if (allowedOrigins.includes(origin)) return cb(null, true);
+      // Allow localhost for local testing
+      if (origin === `http://localhost:${PORT}` || origin === `http://127.0.0.1:${PORT}`) return cb(null, true);
+      
       cb(new Error(`CORS: origin "${origin}" not allowed`));
     },
     methods: ['POST', 'OPTIONS'],
