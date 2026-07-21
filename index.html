@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #000;
+        }
+        /* Hide overlay initially */
+        #ki-overlay {
+            display: none !important;
+        }
+        #ki-overlay.open {
+            display: flex !important;
+        }
+    </style>
+</head>
+<body>
+    <button id="ask-kai-btn" style="padding: 12px 24px; font-size: 16px; cursor: pointer;">Open Chat</button>
+
+    <script>
+        window.KormoanAgentConfig = {
+            apiUrl: 'https://parking.sistem.app',
+            wpTriggers: ['#ask-kai-btn','.ask-kai-btn'],
+            wpInput: '#hero-input'
+        };
+    </script>
+    
+    <!-- Widget script load karo -->
+    <script src="https://parking.sistem.app/widget/chat.js" defer></script>
+
+    <script>
+        // Wait for widget to be ready
+        setTimeout(function() {
+            // Check if widget is already preloaded
+            if (window.isKormoanWidgetLoaded && window.isKormoanWidgetLoaded()) {
+                console.log('✓ Widget already loaded');
+            } else if (window.preloadKormoanWidget) {
+                // Preload widget
+                window.preloadKormoanWidget();
+                console.log('✓ Widget preload triggered');
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

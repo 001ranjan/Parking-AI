@@ -7,19 +7,19 @@ export const TOOL_DEFINITIONS: ToolDefinition[] = [
   {
     name: 'fetch_posts',
     description:
-      'Fetches all blog posts and stories from the Kormoan website. Use for questions about articles, insights, design thinking, or written content.',
+      'Fetches all posts, help center documents, and articles from the Sistem Parking website. Use for questions about parking help docs, invoices, subscriptions, or guides.',
     parameters: { type: 'object', properties: {}, required: [] },
   },
   {
     name: 'fetch_pages',
     description:
-      'Fetches all website pages (Services, About, Contact, Design for AI, Book a Call, etc.). Use for questions about what Kormoan does, their process, team, or services.',
+      'Fetches all website pages (Solutions, Pricing, About Us, Deploy and Manage, Book a Demo, etc.) from Sistem Parking. Use for questions about parking solutions, pricing, features, or services.',
     parameters: { type: 'object', properties: {}, required: [] },
   },
   {
     name: 'fetch_portfolio',
     description:
-      'Fetches all portfolio/case study items from Kormoan. Use when asked about past work, projects, clients, industries served, or examples of what Kormoan has built.',
+      'Fetches all portfolio items, case studies, and parking integrations from Sistem Parking. Use when asked about parking implementations, use cases, or integrations.',
     parameters: { type: 'object', properties: {}, required: [] },
   },
   {
@@ -40,13 +40,13 @@ export const TOOL_DEFINITIONS: ToolDefinition[] = [
   {
     name: 'search_content',
     description:
-      'Searches across Kormoan website content for a keyword or topic. Returns the most relevant excerpts. Use for specific searches across posts, pages, or portfolio.',
+      'Searches across Sistem Parking website content for a keyword or topic. Returns the most relevant excerpts. Use for specific searches across posts, pages, or portfolio.',
     parameters: {
       type: 'object',
       properties: {
         query: {
           type: 'string',
-          description: 'The keyword or topic to search for (e.g. "healthcare", "IndusInd", "pricing")',
+          description: 'The keyword or topic to search for (e.g. "airports", "pricing", "invoices", "integrations")',
         },
         source: {
           type: 'string',

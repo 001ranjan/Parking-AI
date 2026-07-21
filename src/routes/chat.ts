@@ -47,7 +47,7 @@ router.post('/', async (req: Request<{}, {}, ChatBody>, res: Response) => {
 
   if (isInjectionAttempt(message)) {
     res.json({
-      response: "I'm Kormoan Agent and I'm here to help with questions about Kormoan. I can't process that request. Is there something about our services or work I can help you with?",
+      response: "I'm Sistem Parking Agent and I'm here to help with questions about Sistem Parking. I can't process that request. Is there something about our parking solutions or documentation I can help you with?",
     });
     return;
   }

@@ -270,12 +270,17 @@
   }
 
   function inline(t) {
-    return esc(t)
+    var escaped = esc(t)
       .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
       .replace(/\*(.+?)\*/g, '<em>$1</em>')
       .replace(/`(.+?)`/g, '<code>$1</code>')
       .replace(/\[([^\]]+)\]\(([^)]+)\)/g,
         '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+
+    // Auto-link raw URLs that aren't already wrapped inside href="..."
+    return escaped.replace(/(^|[\s(])(https?:\/\/[^\s<)]+)/g, function(match, prefix, url) {
+      return prefix + '<a href="' + url + '" target="_blank" rel="noopener noreferrer">' + url + '</a>';
+    });
   }
 
   function renderMd(text) {
