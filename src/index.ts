@@ -6,7 +6,7 @@ import chatRouter from './routes/chat';
 import { ensureHeaders } from './sheets';
 
 const app = express();
-const PORT = parseInt(process.env.PORT ?? '3001', 10);
+const PORT = parseInt(process.env.PORT ?? '3005', 10);
 
 const allowedOrigins = (process.env.ALLOWED_ORIGINS ?? '')
   .split(',')
